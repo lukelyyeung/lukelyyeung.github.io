@@ -1,0 +1,623 @@
+/*
+===============================================
+General 
+===============================================
+*/
+
+.container-fluid {
+  margin:0;
+}
+
+.flexBox-row,
+.flexBox-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexBox-column {
+  flex-direction: column;
+}
+
+.fullPage {
+  height: 100vh;
+}
+
+.surface {
+  position: relative;
+  z-index: 1;
+}
+
+.button {
+  font-size: 22px;
+  text-indent: 11px;
+  border: 5px double rgba(255,255,255,1);
+  color: rgba(255,255,255,1);
+  background: rgba(214,30,41,0.0);
+  border-radius: 40px;
+  padding: 10px 20px;
+  margin-top:50px;
+  overflow: hidden;
+  width: 150px;
+  transition: 
+  all        1.2s,
+  border     0.5s 1.2s;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.button span {
+    display: inline-block;
+    -webkit-transform: translateX(300px);
+    transform: translateX(300px);
+    color: rgba(255,255,255,1);
+    font-weight: bold;
+    opacity: 0;
+    transition: 
+    opacity 0.1s 0.5s,
+    transform 0.4s 0.5s;
+  }
+
+.button:hover {
+  text-indent: 0;
+  background: rgba(214,30,41,1);
+  color: rgba(255,255,255,1);
+  width: 250px;
+  border: none;
+  /* border: 5px solid rgba(52,58,64,1); */
+  box-shadow: 3px 3px 2px rgba(black, 0.15);
+}
+
+.button:hover span{
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.container {
+  opacity:0.0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/*
+=================================================
+Typography
+=================================================
+*/
+
+@font-face {
+    font-family: vintageFont;
+    src: url('fonts/356EA9_0_0.woff');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+  color: rgba(255,255,255,1);
+  text-align: center;
+}
+
+h1,
+h2,
+.navbar a {
+  font-family: vintageFont;
+}
+
+p,a {
+  font-family: 'Righteous', cursive;
+}
+
+/*
+=================================================
+Navigation bar
+=================================================
+*/
+.navbar-dark .navbar-nav .nav-link {
+  font-size: 1.5vw;
+  color: rgba(255,255,255,1);
+  z-index: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  transition: background 1.0s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link-active a { 
+  color: rgba(214,29,40,1);
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+.navbar-dark .navbar-toggler {
+  color: transparent;
+  border-color: transparent;
+  border: none;
+}
+
+/*
+=================================================
+Jumbotron Banner
+=================================================
+*/
+
+.jumbotron {
+  padding: 20vh 15vw 0 15vw;
+  position: relative;
+}
+
+.jumbotron h1 {
+  font-size: 8vw;
+  text-shadow: 3px 3px 3px rgba(0,0,0,1);
+}
+
+.jumbotron p{
+  font-size: 2vw;
+}
+
+.overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-image: url(images/cover.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  filter: grayscale(100%);
+}
+
+/*
+=================================================
+Square Logo & loadiang
+=================================================
+*/
+
+.square {
+  width: 90px;
+  height:90px;
+  border:5px double rgba(214,29,40,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1031;
+  border-radius: 10px;
+  opacity: 0.0;
+  transition: border-color 0.25s ease;
+}
+
+.loading {
+  position:fixed;
+  top:50%;
+  left:50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.square h1 {
+  color: rgba(214,30,41,1);
+  margin:0;
+  transition: color 0.25s ease;
+}
+
+.square h1:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.rotated {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.rotated-105 {
+  -webkit-transform: rotate(-105deg);
+  transform: rotate(-105deg);
+}
+
+.rotated-90 {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.bar {
+  height:35px;
+  background-color: rgba(214,29,40,1);
+  z-index:99;
+}
+
+.bar p {
+  margin:0;
+}
+
+/* 
+=================================================
+About us
+=================================================
+*/
+#aboutMe {
+  overflow: hidden;
+  background-image: url(images/about.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+#aboutMe h1,
+#aboutMe h2 {
+  color:rgba(255,255,255,1);
+}
+
+#aboutMe h1{
+  font-size:7vw;
+}
+
+.contentBox p{
+  font-size:1vw;
+}
+
+.contentBox,
+.images {
+  width:300px;
+}
+
+.images {
+  height:300px;
+  margin: 1% 0;
+  border-radius: 10px;
+}
+
+.images1,
+.images2,
+.images3 {
+  overflow: hidden;
+  background-image: url(images/4ppl.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  box-shadow: 2px 2px 2px rgba(255,255,255,1);
+}
+
+.images2 {
+  background-image: url(images/hongkong.jpg);
+}
+
+.images3 {
+  background-image: url(images/corrupt.jpg);
+}
+
+@media screen and (max-width: 992px) {
+  .images {width: 16vh;
+            height:16vh;
+          display: inline-block;}
+  .contentBox {display: inline-block;}
+  .contentBox p {font-size:2vh;}
+  #aboutMe h2 {font-size: 5vw;}
+  #aboutMe h1 {display: none;}
+}
+
+/* 
+=================================================
+Concepts
+=================================================
+*/
+#concepts {
+  position: relative;
+}
+
+#concepts .overlay {
+  background-image: url(images/concepts2.jpg);
+  filter: grayscale(65%);
+}
+
+#concepts h2{
+  font-size: 3vw;
+    text-shadow: 3px 3px 3px rgba(0,0,0,1);
+}
+
+#concepts h1 {
+  font-size: 6.5vw;
+  text-shadow: 5px 5px 5px rgba(0,0,0,1);
+  margin-bottom:5vh;
+}
+
+#concepts i{
+  border-radius: 20px 0 20px 0;
+}
+
+.fa-coffee,
+.fa-bolt,
+.fa-mobile-alt,
+.fa-comments {
+  /* color: rgba(67, 148, 224, 0.6); */
+  color: rgba(0,0,0,1);
+}
+
+.fa-varSize {
+  font-size: 175px;
+}
+
+@media screen and (max-width: 650px) {
+  .fa-varSize {font-size: 90px;}
+  #concepts h2 {font-size: 6vw;
+                margin-bottom: 3vw;}
+}
+
+/* 
+=================================================
+Album
+=================================================
+*/
+
+#album {
+  overflow: hidden;
+  background-image: url(images/album2.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.notFullPage {
+  width:95vw;
+  height:95vh;
+  overflow: hidden;
+  position: relative;
+  z-index:0;
+}
+
+.gallery {
+  list-style-type: none;
+  padding:0;
+}
+
+.gallery-item {
+  display:none;
+  filter: grayscale(20%);
+}
+
+.img-thumbnail {
+  max-width:65%;
+}
+
+.gallery-active {
+  display:flex;
+}
+
+.gallery-prev,
+.gallery-next {
+  font-family: 'Righteous', cursive;
+  font-size:3vw;
+  padding:15px;
+  background-color: rgba(255,255,255,0.6);
+  color:rgba(255,255,255,0.6);
+  position: absolute;
+  z-index:1;
+}
+
+.gallery-prev {
+  left:0;
+  border-radius: 10px 0 0 10px;
+}
+
+.gallery-next {
+  right:0;
+  border-radius: 0 10px 10px 0;
+}
+
+.gallery-prev:hover,
+.gallery-next:hover {
+  background-color: rgba(255,255,255,1);
+  color:rgba(0,0,0,1);
+}
+
+@media screen and (max-width: 650px) {
+  .img-thumbnail {
+    max-width:85%;}
+  .gallery-prev,
+  .gallery-next {
+    font-size: 5vw;
+    padding:7.5px;}
+}
+
+/* 
+=================================================
+Progress
+=================================================
+*/
+#progress {
+  overflow: hidden;
+  background-image: url(images/desk.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+
+@media screen and (max-width: 650px) {
+  .bigCard {
+    width: 40vw;
+    height: 27vw;}
+  .mediumCard {
+    width: 19.05vw;
+    height: 26.4vw;} 
+  .smallCard {
+    width: 8.72vw;
+    height: 12.74vw;}
+}
+        
+/* 
+===============================================
+Contact
+===============================================
+*/
+
+#contact {
+  color: #fff;
+  background: linear-gradient(-45deg, #DA4B42, #E73C7E, #3F51B5, #44BEC7);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 13.5s ease infinite;
+  -moz-animation: Gradient 13.5s ease infinite;
+  animation: Gradient 13.5s ease infinite;
+}
+
+.fa-large {
+  font-size: 20vw;
+  padding:0;
+  margin: 3vw;
+}
+
+.fa-large a{
+  color: rgba(25,25,25,0.3);
+  transition: 0.75s ease-in;
+}
+
+.fa-large a:hover {
+  color: rgba(255,255,255,1);
+}
+
+/* 
+=================================================
+Animation
+=================================================
+*/
+@keyframes rotateIn {
+  0% {
+    transform-origin: center;
+    -webkit-transform: translate(-50%,-50%) rotate(-360deg);
+    transform: translate(-50%,-50%) rotate(-360deg);
+    }
+    
+  100% {
+    transform-origin: center;
+    -webkit-transform: translate(-50%,-50%) rotate(0deg);
+    transform: translate(-50%,-50%) rotate(0deg);
+    opacity: 1;
+    }
+  }
+  
+.fadeIn {
+  animation-duration: 0.75s;
+  animation-timing-function: ease-in-out;
+}
+
+.container-fluid .fadeIn:first-child {
+  animation-delay: 2s;
+}
+
+.row .fadeIn:nth-child(1) {
+  animation-delay: 1.0s;
+}
+
+.row .fadeIn:nth-child(2) {
+  animation-delay: 1.5s;
+}
+
+.row .fadeIn:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+  /*
+  =================================================
+  Vertical Carosul
+  =================================================
+  */
+  
+  .vert .carousel-item-next.carousel-item-left,
+  .vert .carousel-item-prev.carousel-item-right {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .vert .carousel-item-next,
+  .vert .active.carousel-item-right {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100% 0);
+  }
+  
+  .vert .carousel-item-prev,
+  .vert .active.carousel-item-left {
+-webkit-transform: translate3d(0,-100%, 0);
+transform: translate3d(0,-100%, 0);
+}
+
+.vert .carousel-control-prev,
+.vert .carousel-control-next {
+  width:15%;
+  height:15%;
+  left:unset;
+  right:0;
+  z-index:1031;
+}
+
+.vert .carousel-control-prev {
+  bottom:unset;
+}
+
+.vert .carousel-control-next {
+  top:unset;
+}
+
+.vert .carousel-control-next-icon,
+.vert .carousel-control-prev-icon {
+  -webkit-transform:  rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.up {
+  display: none;
+}
+
+.vert .carousel-indicators {
+  z-index: 100;
+}
+
