@@ -21,7 +21,7 @@ function handleTouchMove(evt) {
     var yDiff = yDown - yUp;
 
     if ( Math.abs( yDiff ) > Math.abs( xDiff ) ) {
-        if ( yDiff > 0 ) {
+        if ( yDiff < 0 ) {
             $("#carouselSPAControls").carousel("prev"); 
         } else { 
             $("#carouselSPAControls").carousel("next"); 

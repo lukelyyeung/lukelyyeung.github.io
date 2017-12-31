@@ -6,7 +6,7 @@ Progress
 
 .cardBox { 
     position: relative;
-    perspective: 40vw;
+    perspective: 60vw;
 }
 
 .bigCard {
@@ -23,6 +23,10 @@ Progress
 .smallCard {
     width: 6.6176471vw;
     height: 9.65vw;
+}
+
+.edgeCard {
+    justify-content: flex-end;
 }
 
 .card {
@@ -51,18 +55,3 @@ Progress
 .card:hover {
     transform: rotateY( 180deg );
 }
-
-/* @media screen and (max-width: 650px) {
-    .bigCard {
-        width: 30vw;
-        height: 19.1vw;
-    }
-    .mediumCard {
-        width: 17.32vw;
-        height: 24vw;
-    } 
-    .smallCard {
-        width: 7.93vw;
-        height: 11.58vw;
-    }
-} */

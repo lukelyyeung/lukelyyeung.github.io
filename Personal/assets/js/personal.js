@@ -1,25 +1,12 @@
 // Opening animation
 $(document).ready(function(){
-    move();
+    loadingBar();
 });
 
-function opening() {
-    $(".square").fadeIn(100);
-    $(".square").addClass("animated rotateIn infinite");
-    $(".square").animate({ top: '50'}, 1000,'linear', function() { 
-        $(".square").removeClass('infinite');
-        if ($(window).width() <= 992) {
-            $(".square").removeClass('loading rotateIn animated').css({ 'transform': 'scale(0.8)', 'opacity': '1' });
-        }
-        color();
-        $(".container").animate({"opacity":"1.0"},800,'linear');
-    });
-};
-
-function move() {
+function loadingBar() {
     var bar = $(".bar");
     var barText = $(".bar p");
-    var width = 1;
+    var width = 0;
     var id = setInterval(frame, 25);
     function frame() {
         if (width >= 100) {
@@ -34,15 +21,29 @@ function move() {
     }
 };
 
+function opening() {
+    $(".square").fadeIn(100);
+    $(".square").addClass("animated rotateIn infinite");
+    $(".square").animate({ top: '50'}, 1000,'linear', function() { 
+        $(".square").removeClass('infinite');
+        if ($(window).width() <= 992) {
+            $(".square").removeClass('loading rotateIn animated').css({ 'transform': 'scale(0.7)', 'opacity': '1' });
+        }
+        $(".container").animate({"opacity":"1.0"},800,'linear');
+        color();
+    });
+};
+
+
 function color() {
     var overlay = $("#Banner .overlay");
     var scale = 100;
-    var id = setInterval(frame, 60);
+    var id = setInterval(frame, 100);
     function frame() {
         if (scale <= 65) {
             clearInterval(id);
         } else {
-            scale --;
+            scale--;
             overlay.css('filter', `grayscale(${scale}%)`);
         }
     }

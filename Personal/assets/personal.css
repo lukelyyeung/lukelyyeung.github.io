@@ -3,9 +3,8 @@
 General 
 ===============================================
 */
-
-.container-fluid {
-  margin:0;
+.container {
+  opacity:0.0;
 }
 
 .flexBox-row,
@@ -48,16 +47,16 @@ General
 }
 
 .button span {
-    display: inline-block;
-    -webkit-transform: translateX(300px);
-    transform: translateX(300px);
-    color: rgba(255,255,255,1);
-    font-weight: bold;
-    opacity: 0;
-    transition: 
-    opacity 0.1s 0.5s,
-    transform 0.4s 0.5s;
-  }
+  display: inline-block;
+  -webkit-transform: translateX(300px);
+  transform: translateX(300px);
+  color: rgba(255,255,255,1);
+  font-weight: bold;
+  opacity: 0;
+  transition: 
+  opacity 0.1s 0.5s,
+  transform 0.4s 0.5s;
+}
 
 .button:hover {
   text-indent: 0;
@@ -75,12 +74,23 @@ General
   opacity: 1;
 }
 
-.container {
-  opacity:0.0;
-}
-
 a:hover {
   text-decoration: none;
+}
+
+.rotated {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.rotated-105 {
+  -webkit-transform: rotate(-105deg);
+  transform: rotate(-105deg);
+}
+
+.rotated-90 {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 /*
@@ -88,31 +98,23 @@ a:hover {
 Typography
 =================================================
 */
-
 @font-face {
     font-family: vintageFont;
     src: url('fonts/356EA9_0_0.woff');
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-a {
+h1,h2,h3,h4,h5,p,a {
   color: rgba(255,255,255,1);
   text-align: center;
 }
 
-h1,
-h2,
+h1,h2,
 .navbar a {
-  font-family: vintageFont;
+  font-family: vintageFont, Bookman,"Trebuchet MS";
 }
 
 p,a {
-  font-family: 'Righteous', cursive;
+  font-family: 'Righteous', cursive, Palatino, Verdana;
 }
 
 /*
@@ -146,24 +148,25 @@ Navigation bar
   border: none;
 }
 
+@media screen and (max-width: 650px) {
+  .navbar-dark .navbar-nav .nav-link {
+    font-size: 3.5vw;
+    padding:4px;
+  }
+}
 /*
 =================================================
 Jumbotron Banner
 =================================================
 */
-
 .jumbotron {
-  padding: 20vh 15vw 0 15vw;
+  padding: 30vh 15vw 0 15vw;
   position: relative;
 }
 
 .jumbotron h1 {
   font-size: 8vw;
   text-shadow: 3px 3px 3px rgba(0,0,0,1);
-}
-
-.jumbotron p{
-  font-size: 2vw;
 }
 
 .overlay {
@@ -181,12 +184,21 @@ Jumbotron Banner
   filter: grayscale(100%);
 }
 
+@media screen and (max-width: 660px) {
+  .jumbotron {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  .jumbotron h1 {
+    font-size: 11vw;
+  };
+}
+
 /*
 =================================================
 Square Logo & loadiang
 =================================================
 */
-
 .square {
   width: 90px;
   height:90px;
@@ -219,25 +231,9 @@ Square Logo & loadiang
   transform: scale(1.2);
 }
 
-.rotated {
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-.rotated-105 {
-  -webkit-transform: rotate(-105deg);
-  transform: rotate(-105deg);
-}
-
-.rotated-90 {
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-
 .bar {
   height:35px;
   background-color: rgba(214,29,40,1);
-  z-index:99;
 }
 
 .bar p {
@@ -257,13 +253,12 @@ About us
   background-size: cover;
 }
 
-#aboutMe h1,
-#aboutMe h2 {
-  color:rgba(255,255,255,1);
-}
-
 #aboutMe h1{
   font-size:7vw;
+}
+
+.self {
+  margin-bottom:15px;
 }
 
 .contentBox p{
@@ -300,14 +295,19 @@ About us
   background-image: url(images/corrupt.jpg);
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 820px) {
   .images {width: 16vh;
-            height:16vh;
-          display: inline-block;}
-  .contentBox {display: inline-block;}
+            height:16vh;}
   .contentBox p {font-size:2vh;}
   #aboutMe h2 {font-size: 5vw;}
   #aboutMe h1 {display: none;}
+  .self {background-color: rgba(0,0,0,0.45);
+         border-radius: 10px;
+         flex-direction: row;}
+
+  .images {margin-right: 10px;
+           margin-left: 10px;
+  }
 }
 
 /* 
@@ -326,7 +326,7 @@ Concepts
 
 #concepts h2{
   font-size: 3vw;
-    text-shadow: 3px 3px 3px rgba(0,0,0,1);
+  text-shadow: 3px 3px 3px rgba(0,0,0,1);
 }
 
 #concepts h1 {
@@ -339,11 +339,7 @@ Concepts
   border-radius: 20px 0 20px 0;
 }
 
-.fa-coffee,
-.fa-bolt,
-.fa-mobile-alt,
-.fa-comments {
-  /* color: rgba(67, 148, 224, 0.6); */
+.fas {
   color: rgba(0,0,0,1);
 }
 
@@ -362,7 +358,6 @@ Concepts
 Album
 =================================================
 */
-
 #album {
   overflow: hidden;
   background-image: url(images/album2.jpg);
@@ -376,7 +371,6 @@ Album
   height:95vh;
   overflow: hidden;
   position: relative;
-  z-index:0;
 }
 
 .gallery {
@@ -405,7 +399,6 @@ Album
   background-color: rgba(255,255,255,0.6);
   color:rgba(255,255,255,0.6);
   position: absolute;
-  z-index:1;
 }
 
 .gallery-prev {
@@ -425,12 +418,10 @@ Album
 }
 
 @media screen and (max-width: 650px) {
-  .img-thumbnail {
-    max-width:85%;}
+  .img-thumbnail {max-width:85%;}
   .gallery-prev,
-  .gallery-next {
-    font-size: 5vw;
-    padding:7.5px;}
+  .gallery-next {font-size: 5vw; 
+                 padding:7.5px;}
 }
 
 /* 
@@ -446,17 +437,14 @@ Progress
   background-size: cover;
 }
 
-
 @media screen and (max-width: 650px) {
-  .bigCard {
-    width: 40vw;
-    height: 27vw;}
-  .mediumCard {
-    width: 19.05vw;
-    height: 26.4vw;} 
-  .smallCard {
-    width: 8.72vw;
-    height: 12.74vw;}
+  .bigCard {width: 60vw;
+            height: 40.5vw;}
+  .mediumCard {width: 29vw;
+              height: 40vw;} 
+  .smallCard {width: 13vw;
+             height: 18vw;}
+  .edgeCard {justify-content: center;}
 }
         
 /* 
@@ -499,15 +487,15 @@ Animation
     transform-origin: center;
     -webkit-transform: translate(-50%,-50%) rotate(-360deg);
     transform: translate(-50%,-50%) rotate(-360deg);
-    }
+  }
     
   100% {
     transform-origin: center;
     -webkit-transform: translate(-50%,-50%) rotate(0deg);
     transform: translate(-50%,-50%) rotate(0deg);
     opacity: 1;
-    }
   }
+}
   
 .fadeIn {
   animation-duration: 0.75s;
@@ -566,28 +554,28 @@ Animation
   }
 }
 
-  /*
-  =================================================
-  Vertical Carosul
-  =================================================
-  */
+/*
+=================================================
+Vertical Carosul
+=================================================
+*/
   
-  .vert .carousel-item-next.carousel-item-left,
-  .vert .carousel-item-prev.carousel-item-right {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
+.vert .carousel-item-next.carousel-item-left,
+.vert .carousel-item-prev.carousel-item-right {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
   
-  .vert .carousel-item-next,
-  .vert .active.carousel-item-right {
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100% 0);
-  }
+.vert .carousel-item-next,
+.vert .active.carousel-item-right {
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100% 0);
+}
   
-  .vert .carousel-item-prev,
-  .vert .active.carousel-item-left {
--webkit-transform: translate3d(0,-100%, 0);
-transform: translate3d(0,-100%, 0);
+.vert .carousel-item-prev,
+.vert .active.carousel-item-left {
+  -webkit-transform: translate3d(0,-100%, 0);
+  transform: translate3d(0,-100%, 0);
 }
 
 .vert .carousel-control-prev,
@@ -607,17 +595,6 @@ transform: translate3d(0,-100%, 0);
   top:unset;
 }
 
-.vert .carousel-control-next-icon,
-.vert .carousel-control-prev-icon {
-  -webkit-transform:  rotate(90deg);
-  transform: rotate(90deg);
-}
-
 .up {
   display: none;
 }
-
-.vert .carousel-indicators {
-  z-index: 100;
-}
-
