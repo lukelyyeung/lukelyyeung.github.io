@@ -1,5 +1,7 @@
 // Opening animation
+let isLoading = true;
 $(document).ready(function(){
+    isLoading = true;
     loadingBar();
 });
 
@@ -7,7 +9,7 @@ function loadingBar() {
     var bar = $(".bar");
     var barText = $(".bar p");
     var width = 0;
-    var id = setInterval(frame, 25);
+    var id = setInterval(frame, 15);
     function frame() {
         if (width >= 100) {
             clearInterval(id);
@@ -21,6 +23,10 @@ function loadingBar() {
     }
 };
 
+function noscroll() {
+    window.scrollTo( 0, 0 );
+  }
+
 function opening() {
     $(".square").fadeIn(100);
     $(".square").addClass("animated rotateIn infinite");
@@ -31,6 +37,7 @@ function opening() {
         }
         $(".container").animate({"opacity":"1.0"},800,'linear');
         color();
+        isLoading = false;
     });
 };
 
@@ -123,6 +130,9 @@ function logoColor(pattern) {
 
 // Mouse wheeling hijacking carousel
 $(window).bind('mousewheel DOMMouseScroll', function (event) {
+    if (isLoading) {
+        return;
+    }
     if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
         $("#carouselSPAControls").carousel("prev");
     }
@@ -133,6 +143,9 @@ $(window).bind('mousewheel DOMMouseScroll', function (event) {
 
 // Keyboard pressing hijacking for carousel
 $(window).bind('keydown', function (event) {
+    if (isLoading) {
+        return;
+    }
     if (event.which === 38) {
         $("#carouselSPAControls").carousel("prev");
     }
